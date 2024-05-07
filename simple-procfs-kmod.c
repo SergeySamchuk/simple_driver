@@ -60,11 +60,11 @@ static ssize_t myread(struct file *file, char __user *ubuf,size_t count, loff_t 
     return len;
 }
 
-static struct file_operations myops = 
+static struct proc_ops myops = 
 {
-    .owner = THIS_MODULE,
-    .read = myread,
-    .write = mywrite,
+    // .owner = THIS_MODULE,
+    .proc_read = myread,
+    .proc_write = mywrite,
 };
 
 static int simple_init(void)
